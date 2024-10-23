@@ -1,0 +1,91 @@
+import 'package:flutter/material.dart';
+
+var DUMMY_DATA = [
+  {"id": 1, "content": "one"},
+  {"id": 2, "content": "two"},
+  {"id": 3, "content": "three"}
+];
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+          useMaterial3: true,
+        ),
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Center(
+                child: Text(
+                  "To do list",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              backgroundColor: Colors.blueAccent,
+            ),
+            body: const Center(child: TodoListContainer())));
+  }
+}
+
+class TodoListContainer extends StatefulWidget {
+  const TodoListContainer({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _TodoListContainerState();
+  }
+}
+
+class _TodoListContainerState extends State<TodoListContainer> {
+  final controller = TextEditingController();
+  List<String> todoList = [];
+
+  @override
+  Widget build(BuildContext context) {
+    void submitHandler(e) {
+      setState(() {
+        todoList.add(e);
+        controller.clear();
+      });
+    }
+
+    return Container(
+        width: 300,
+        margin: const EdgeInsets.all(10.0),
+        child: Center(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              style: const TextStyle(fontSize: 15),
+              textAlign: TextAlign.start,
+              controller: controller,
+              textInputAction: TextInputAction.send,
+              onSubmitted: submitHandler,
+              decoration: const InputDecoration(
+                  labelText: '무엇을 해야하나요?',
+                  prefixIcon: Icon(Icons.input_rounded),
+                  border: OutlineInputBorder()),
+            ),
+            ...todoList.map((ele) => Container(
+                  padding: const EdgeInsets.all(5.0),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(color: Colors.black, width: 1))),
+                  child: Text(ele),
+                ))
+          ],
+        )));
+  }
+}
