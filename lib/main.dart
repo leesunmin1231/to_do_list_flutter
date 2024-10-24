@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-
-var DUMMY_DATA = [
-  {"id": 1, "content": "one"},
-  {"id": 2, "content": "two"},
-  {"id": 3, "content": "three"}
-];
+import 'package:to_do_list/src/core/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-          useMaterial3: true,
-        ),
+        theme: AppTheme.appTheme,
         home: Scaffold(
             appBar: AppBar(
               title: const Center(
