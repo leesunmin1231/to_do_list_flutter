@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:to_do_list/src/core/theme/app_theme.dart';
 
+class TodoListNotifier extends StateNotifier<List<String>> {
+  TodoListNotifier(this.ref) : super([]);
+
+  final Ref ref;
+
+  Future<void> add(todo) async {
+    state.add(todo);
+  }
+}
+
+final todoListStateProvider =
+    StateNotifierProvider<TodoListNotifier, List<String>>((ref) {
+  return TodoListNotifier(ref);
+});
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    // Provider가 동작할 수 있도록 앱의 가장 최상위 부모 위젯을 ProviderScope로 감싸줍니다.
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,26 +49,18 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class TodoListContainer extends StatefulWidget {
+class TodoListContainer extends ConsumerWidget {
   const TodoListContainer({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _TodoListContainerState();
-  }
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = TextEditingController();
+    List<String> todoList = ref.watch(todoListStateProvider);
 
-class _TodoListContainerState extends State<TodoListContainer> {
-  final controller = TextEditingController();
-  List<String> todoList = [];
-
-  @override
-  Widget build(BuildContext context) {
     void submitHandler(e) {
-      setState(() {
-        todoList.add(e);
-        controller.clear();
-      });
+      print(e);
+      ref.read(todoListStateProvider.notifier).add(e);
+      controller.clear();
     }
 
     return Container(
