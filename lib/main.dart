@@ -3,20 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:to_do_list/src/core/theme/app_theme.dart';
 
-class TodoListNotifier extends StateNotifier<List<String>> {
-  TodoListNotifier(this.ref) : super([]);
+part 'main.g.dart';
 
-  final Ref ref;
+@riverpod
+class TodoListNotifier extends _$TodoListNotifier {
+  @override
+  List<String> build() {
+    return [];
+  }
 
-  Future<void> add(todo) async {
-    state.add(todo);
+  void addTodo(String todo) {
+    final previousState = state;
+    state = [...previousState, todo];
   }
 }
-
-final todoListStateProvider =
-    StateNotifierProvider<TodoListNotifier, List<String>>((ref) {
-  return TodoListNotifier(ref);
-});
 
 void main() {
   runApp(
@@ -49,18 +49,26 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class TodoListContainer extends ConsumerWidget {
+class TodoListContainer extends ConsumerStatefulWidget {
   const TodoListContainer({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final controller = TextEditingController();
-    List<String> todoList = ref.watch(todoListStateProvider);
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return _TodoListContainerState();
+  }
+}
 
-    void submitHandler(e) {
-      print(e);
-      ref.read(todoListStateProvider.notifier).add(e);
-      controller.clear();
+class _TodoListContainerState extends ConsumerState<TodoListContainer> {
+  final controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> todoList = ref.watch(todoListNotifierProvider);
+    void submitHandler(String text) {
+      if (text.isNotEmpty) {
+        ref.read(todoListNotifierProvider.notifier).addTodo(text);
+        controller.clear(); // Clear text field after submission
+      }
     }
 
     return Container(
