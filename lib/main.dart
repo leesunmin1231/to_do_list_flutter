@@ -62,6 +62,12 @@ class _TodoListContainerState extends ConsumerState<TodoListContainer> {
   final controller = TextEditingController();
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     List<String> todoList = ref.watch(todoListNotifierProvider);
     void submitHandler(String text) {
