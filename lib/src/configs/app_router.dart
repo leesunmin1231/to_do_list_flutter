@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:to_do_list/src/features/tododetail/pages/tododetail_page.dart';
 import 'package:to_do_list/src/features/todolist/pages/todolist_page.dart';
 
 part 'app_router.g.dart';
@@ -13,6 +14,10 @@ GoRouter router(Ref ref) {
       GoRoute(
         path: '/todolist',
         builder: (_, __) => const TodoListPage(),
+      ),
+      GoRoute(
+        path: '/tododetail',
+        builder: (_, __) => const TododetailPage(),
       ),
     ],
   );
