@@ -17,7 +17,8 @@ GoRouter router(Ref ref) {
       ),
       GoRoute(
         path: '/tododetail',
-        builder: (_, __) => const TododetailPage(),
+        builder: (_, state) =>
+            TododetailPage(int.parse(state.uri.queryParameters['id']!)),
       ),
     ],
   );

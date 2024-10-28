@@ -49,8 +49,8 @@ class _TodoListContainerState extends ConsumerState<TodoListContainer> {
                   prefixIcon: Icon(Icons.input_rounded),
                   border: OutlineInputBorder()),
             ),
-            ...todoList.map((ele) => InkWell(
-                onTap: () => context.go('/tododetail'),
+            ...todoList.asMap().entries.map((ele) => InkWell(
+                onTap: () => context.go('/tododetail?id=${ele.key}'),
                 child: Container(
                   padding: const EdgeInsets.all(5.0),
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
@@ -58,7 +58,7 @@ class _TodoListContainerState extends ConsumerState<TodoListContainer> {
                   decoration: const BoxDecoration(
                       border: Border(
                           bottom: BorderSide(color: Colors.black, width: 1))),
-                  child: Text(ele),
+                  child: Text(ele.value),
                 )))
           ],
         )));
