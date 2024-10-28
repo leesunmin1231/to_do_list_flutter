@@ -12,7 +12,7 @@ GoRouter router(Ref ref) {
     routes: [
       GoRoute(
         path: '/todolist',
-        builder: (_, __) => const TodoListView(),
+        builder: (_, __) => const TodoListPage(),
       ),
     ],
   );
