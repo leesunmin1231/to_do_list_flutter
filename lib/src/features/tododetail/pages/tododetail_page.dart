@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:to_do_list/src/core/components/top_bar.dart';
 import 'package:to_do_list/src/features/todolist/providers/todolist_notifier.dart';
 
 class TododetailPage extends ConsumerWidget {
@@ -11,15 +12,7 @@ class TododetailPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     List<String> todoList = ref.watch(todoListNotifierProvider);
     return Scaffold(
-        appBar: AppBar(
-          title: const Center(
-            child: Text(
-              "To do content",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          backgroundColor: Colors.blueAccent,
-        ),
+        appBar: const TopBar("To do content"),
         body: Center(
             child: id == null
                 ? const Text('투두 상세를 볼 수 없습니다.')
