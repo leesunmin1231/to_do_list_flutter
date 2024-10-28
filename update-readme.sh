@@ -18,14 +18,14 @@ function generate_project_tree() {
   fi
 
   {
-    echo "### Flutter study docs"
+    echo "### Flutter study docs (docs folder)"
     tree -f --noreport -I $IGNORED --charset ascii "docs" |  # "docs" 폴더 트리 출력
       $SED -e '1d' |                                         # Cut first line
       $SED -e 's/| \+/  /g' |                                # Remove duplicated '|'
       $SED -e 's/[|`]-\+/ */g' |                             # Replace '|--' with '*'
       $SED -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g'   # Add link for contents
 
-    echo -e "\n\n### To do list code"
+    echo -e "\n\n### To do list code (lib folder)"
     tree -f --noreport -I $IGNORED --charset ascii "lib" |  # "lib" 폴더 트리 출력
       $SED -e '1d' |                                        # Cut first line
       $SED -e 's/| \+/  /g' |                               # Remove duplicated '|'

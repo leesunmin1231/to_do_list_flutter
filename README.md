@@ -12,11 +12,11 @@ You can check the package versions in the pubspec.yaml file.
 
 ## Project Tree
 
-### Flutter study docs
+### Flutter study docs (docs folder)
  * [riverpod.md](docs/riverpod.md)
 
 
-### To do list code
+### To do list code (lib folder)
  * [main.dart](lib/main.dart)
  * [src](lib/src)
      * [configs](lib/src/configs)
