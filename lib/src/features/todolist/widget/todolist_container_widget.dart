@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:to_do_list/src/configs/app_router.dart';
+import 'package:go_router/go_router.dart';
 import 'package:to_do_list/src/features/todolist/providers/todolist_notifier.dart';
 
 class TodoListContainer extends ConsumerStatefulWidget {
