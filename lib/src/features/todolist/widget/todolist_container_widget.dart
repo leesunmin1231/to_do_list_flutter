@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:to_do_list/src/configs/app_router.dart';
 import 'package:to_do_list/src/features/todolist/providers/todolist_notifier.dart';
 
 class TodoListContainer extends ConsumerStatefulWidget {
@@ -49,9 +50,7 @@ class _TodoListContainerState extends ConsumerState<TodoListContainer> {
                   border: OutlineInputBorder()),
             ),
             ...todoList.map((ele) => InkWell(
-                onTap: () {
-                  print("안녕");
-                },
+                onTap: () => context.go('/tododetail'),
                 child: Container(
                   padding: const EdgeInsets.all(5.0),
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
