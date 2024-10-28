@@ -1,16 +1,55 @@
-# to_do_list
+# To do list
 
-A new Flutter project.
+This is a Flutter toy project for study purposes.
 
-## Getting Started
+The following packages were used:
 
-This project is a starting point for a Flutter application.
+- riverpod
+- flutter_hooks
+- go_router
 
-A few resources to get you started if this is your first Flutter project:
+You can check the package versions in the pubspec.yaml file.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Project Tree
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Flutter study docs
+ * [riverpod.md](docs/riverpod.md)
+
+
+### To do list code
+ * [main.dart](lib/main.dart)
+ * [src](lib/src)
+     * [configs](lib/src/configs)
+       * [app_router.dart](lib/src/configs/app_router.dart)
+     * [core](lib/src/core)
+       * [components](lib/src/core/components)
+         * [top_bar.dart](lib/src/core/components/top_bar.dart)
+       * [theme](lib/src/core/theme)
+       * [app_theme.dart](lib/src/core/theme/app_theme.dart)
+     * [features](lib/src/features)
+         * [tododetail](lib/src/features/tododetail)
+           * [pages](lib/src/features/tododetail/pages)
+           * [tododetail_page.dart](lib/src/features/tododetail/pages/tododetail_page.dart)
+         * [todolist](lib/src/features/todolist)
+             * [pages](lib/src/features/todolist/pages)
+               * [todolist_page.dart](lib/src/features/todolist/pages/todolist_page.dart)
+             * [providers](lib/src/features/todolist/providers)
+               * [todolist_notifier.dart](lib/src/features/todolist/providers/todolist_notifier.dart)
+             * [widget](lib/src/features/todolist/widget)
+                 * [todolist_container_widget.dart](lib/src/features/todolist/widget/todolist_container_widget.dart)
+
+
+## Set Up
+
+- Clone Project
+- Install modules
+
+```bash
+flutter pub get
+```
+
+- Run Flutter
+
+```bash
+flutter run
+```
