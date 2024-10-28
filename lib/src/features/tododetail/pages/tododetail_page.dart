@@ -12,7 +12,10 @@ class TododetailPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     List<String> todoList = ref.watch(todoListNotifierProvider);
     return Scaffold(
-        appBar: const TopBar("To do content"),
+        appBar: const TopBar(
+          appTitle: "To do content",
+          backButton: true,
+        ),
         body: Center(
             child: id == null
                 ? const Text('투두 상세를 볼 수 없습니다.')

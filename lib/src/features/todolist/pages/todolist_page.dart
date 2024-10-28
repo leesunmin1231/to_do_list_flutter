@@ -8,6 +8,9 @@ class TodoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        appBar: TopBar("To do list"), body: Center(child: TodoListContainer()));
+        appBar: TopBar(
+          appTitle: "To do list",
+        ),
+        body: Center(child: TodoListContainer()));
   }
 }

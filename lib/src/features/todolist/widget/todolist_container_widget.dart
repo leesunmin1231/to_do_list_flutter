@@ -50,7 +50,7 @@ class _TodoListContainerState extends ConsumerState<TodoListContainer> {
                   border: OutlineInputBorder()),
             ),
             ...todoList.asMap().entries.map((ele) => InkWell(
-                onTap: () => context.go('/tododetail?id=${ele.key}'),
+                onTap: () => context.push('/tododetail?id=${ele.key}'),
                 child: Container(
                   padding: const EdgeInsets.all(5.0),
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
