@@ -1,9 +1,9 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-List<dynamic> useCustomState<T>(initialState) {
-  final customState = useState<T>(initialState);
+List<dynamic> useCustomState(initialState) {
+  final customState = useState(initialState);
 
-  void setCustomState(T newState) {
+  void setCustomState(newState) {
     customState.value = newState;
   }
 

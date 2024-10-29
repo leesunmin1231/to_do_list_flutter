@@ -8,7 +8,7 @@ class TodoListContainerWidget extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
-    final [todoListState, setTodoListState] = useCustomState<dynamic>([]);
+    final [todoListState, setTodoListState] = useCustomState([]);
 
     void submitHandler(e) {
       setTodoListState([...todoListState, e]);
