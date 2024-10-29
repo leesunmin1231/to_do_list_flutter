@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:to_do_list/src/core/components/top_bar.dart';
-import 'package:to_do_list/src/features/todolist/providers/todolist_notifier.dart';
+import 'package:to_do_list/src/store/todolist/todolist_notifier.dart';
 
 class TododetailPage extends ConsumerWidget {
   const TododetailPage(this.id, {super.key});
