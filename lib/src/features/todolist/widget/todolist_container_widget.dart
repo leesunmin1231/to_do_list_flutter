@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:to_do_list/src/core/hooks/use_custom_state.dart';
 
 class TodoListContainerWidget extends HookWidget {
@@ -33,15 +34,17 @@ class TodoListContainerWidget extends HookWidget {
                   prefixIcon: Icon(Icons.input_rounded),
                   border: OutlineInputBorder()),
             ),
-            ...todoListState.map((ele) => Container(
+            ...todoListState.asMap().entries.map((ele) => InkWell(
+                onTap: () => context.push('/tododetail?id=${ele.key}'),
+                child: Container(
                   padding: const EdgeInsets.all(5.0),
                   margin: const EdgeInsets.symmetric(vertical: 8.0),
                   width: double.infinity,
                   decoration: const BoxDecoration(
                       border: Border(
                           bottom: BorderSide(color: Colors.black, width: 1))),
-                  child: Text(ele),
-                ))
+                  child: Text(ele.value),
+                )))
           ],
         )));
   }
