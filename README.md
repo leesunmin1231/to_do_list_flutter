@@ -38,6 +38,8 @@ You can check the package versions in the pubspec.yaml file.
          * [todolist_page.dart](lib/src/features/todolist/pages/todolist_page.dart)
        * [widget](lib/src/features/todolist/widget)
        * [todolist_container_widget.dart](lib/src/features/todolist/widget/todolist_container_widget.dart)
+       * [todolist_input_widget.dart](lib/src/features/todolist/widget/todolist_input_widget.dart)
+       * [todolist_widget.dart](lib/src/features/todolist/widget/todolist_widget.dart)
      * [store](lib/src/store)
          * [todolist](lib/src/store/todolist)
              * [todolist_notifier.dart](lib/src/store/todolist/todolist_notifier.dart)
