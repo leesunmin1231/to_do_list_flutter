@@ -24,7 +24,7 @@ class _TodolistInputWidgetState extends ConsumerState<TodolistInputWidget> {
   Widget build(BuildContext context) {
     void submitHandler(String text) {
       if (text.isNotEmpty) {
-        ref.read(todoListNotifierProvider.notifier).addTodo(text);
+        ref.read(todoListNotifierProvider.notifier).addTodo(content: text);
         controller.clear(); // Clear text field after submission
       }
     }
