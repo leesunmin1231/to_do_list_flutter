@@ -27,17 +27,20 @@ class TodoListNotifier extends _$TodoListNotifier {
     return null;
   }
 
-  bool deleteTodo({id}) {
-    for (Todo target in state) {
+  bool deleteTodo({required String id}) {
+    final previousState = [...state];
+    bool successFlag = false;
+    for (Todo target in previousState) {
       if (target.id == id) {
         target.delete();
-        return true;
+        successFlag = true;
       }
     }
-    return false;
+    state = previousState;
+    return successFlag;
   }
 
-  bool updateTodo({id, newContent}) {
+  bool updateTodo({required String id, required String newContent}) {
     for (Todo target in state) {
       if (target.id == id) {
         target.update(newContent);
