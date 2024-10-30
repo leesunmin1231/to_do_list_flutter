@@ -41,12 +41,15 @@ class TodoListNotifier extends _$TodoListNotifier {
   }
 
   bool updateTodo({required String id, required String newContent}) {
-    for (Todo target in state) {
+    final previousState = [...state];
+    bool successFlag = false;
+    for (Todo target in previousState) {
       if (target.id == id) {
         target.update(newContent);
-        return true;
+        successFlag = true;
       }
     }
-    return false;
+    state = previousState;
+    return successFlag;
   }
 }
