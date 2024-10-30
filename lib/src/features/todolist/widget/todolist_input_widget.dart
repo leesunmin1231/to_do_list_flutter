@@ -2,26 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:to_do_list/src/store/todolist/todolist_notifier.dart';
 
-class TodolistInputWidget extends ConsumerStatefulWidget {
-  const TodolistInputWidget({super.key});
-
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() {
-    return _TodolistInputWidgetState();
-  }
-}
-
-class _TodolistInputWidgetState extends ConsumerState<TodolistInputWidget> {
+class TodolistInputWidget extends ConsumerWidget {
   final controller = TextEditingController();
 
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  TodolistInputWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     void submitHandler(String text) {
       if (text.isNotEmpty) {
         ref.read(todoListNotifierProvider.notifier).addTodo(content: text);

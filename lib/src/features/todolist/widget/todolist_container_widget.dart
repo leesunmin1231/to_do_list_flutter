@@ -10,12 +10,12 @@ class TodoListContainer extends StatelessWidget {
     return Container(
         width: 300,
         margin: const EdgeInsets.all(10.0),
-        child: const Center(
+        child: Center(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TodolistInputWidget(),
-            TodolistWidget(),
+            const TodolistWidget(),
           ],
         )));
   }
