@@ -25,7 +25,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
                 : null,
             title: Text(
               appTitle,
-              style: const TextStyle(color: Colors.white),
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             backgroundColor: value ? Colors.blueAccent : Colors.blueGrey,
             actions: [
