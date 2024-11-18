@@ -11,6 +11,6 @@ class TodoListPage extends StatelessWidget {
         appBar: TopBar(
           appTitle: "To do list",
         ),
-        body: Center(child: TodoListContainerWidget()));
+        body: Center(child: TodoListContainer()));
   }
 }

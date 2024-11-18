@@ -7,14 +7,6 @@ class TodoListContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = TextEditingController();
-    final [todoListState, setTodoListState] = useCustomState([]);
-
-    void submitHandler(e) {
-      setTodoListState([...todoListState, e]);
-      controller.clear();
-    }
-
     return Container(
         width: 300,
         margin: const EdgeInsets.all(10.0),
