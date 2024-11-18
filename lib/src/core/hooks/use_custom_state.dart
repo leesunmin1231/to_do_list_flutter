@@ -5,6 +5,7 @@ List<dynamic> useCustomState(initialState) {
 
   void setCustomState(newState) {
     customState.value = newState;
+    print(customState.value);
   }
 
   return [customState.value, setCustomState];
