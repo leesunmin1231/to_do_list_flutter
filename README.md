@@ -30,6 +30,7 @@ You can check `useState` code in `useCustomState` custom hook.
 ### Flutter study docs (docs folder)
  * [hooks.md](docs/hooks.md)
  * [riverpod.md](docs/riverpod.md)
+ * [trouble_shooting.md](docs/trouble_shooting.md)
 
 
 ### To do list code (lib folder)
